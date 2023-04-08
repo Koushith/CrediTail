@@ -1,4 +1,4 @@
-import { Image, Text, View } from "react-native";
+import { Image, Platform, Text, View } from "react-native";
 import { SafeArea, TextSecondary, TextXL } from "../../components";
 import { SuccessContainer } from "./payment-success.styles";
 import Success from "../../assets/images/success.png";
@@ -18,6 +18,12 @@ export const PaymentSuccessScreen = () => {
       clearTimeout(timeOutId);
     };
   }, []);
+
+  const isIOS = Platform.OS === "ios";
+
+  if (isIOS) {
+    let Fullscreen;
+  }
 
   return (
     <SafeArea>

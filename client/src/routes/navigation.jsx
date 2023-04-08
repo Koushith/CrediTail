@@ -26,11 +26,6 @@ export const Navigation = () => {
           component={PaymentScreen}
           options={{
             ...headerConfig,
-            title: (
-              <View style={{ backgroundColor: "red" }}>
-                <Text>I can render this</Text>
-              </View>
-            ),
           }}
         />
         <Stack.Screen

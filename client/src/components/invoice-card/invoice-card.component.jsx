@@ -1,8 +1,11 @@
-import { Text, View } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { Text, View, TouchableOpacity } from "react-native";
 
 export const InvoiceCard = () => {
+  const navigation = useNavigation();
   return (
-    <View
+    <TouchableOpacity
+      onPress={() => navigation.navigate("Payment")}
       style={{
         flexDirection: "row",
         justifyContent: "space-between",
@@ -38,17 +41,19 @@ export const InvoiceCard = () => {
           PADMAMBA PRINTERS
         </Text>
       </View>
-      <Text
-        style={{
-          fontSize: 16,
-          lineHeight: 14,
+      <View style={{}}>
+        <Text
+          style={{
+            fontSize: 16,
+            lineHeight: 14,
 
-          color: "#000",
-          fontWeight: 700,
-        }}
-      >
-        ₹327
-      </Text>
-    </View>
+            color: "#000",
+            fontWeight: 700,
+          }}
+        >
+          ₹5
+        </Text>
+      </View>
+    </TouchableOpacity>
   );
 };
