@@ -9,7 +9,8 @@ import {
   Poppins_600SemiBold,
   Poppins_700Bold,
 } from "@expo-google-fonts/poppins";
-import { Card, SafeArea } from "./src/components";
+import { Button, Card, SafeArea } from "./src/components";
+import { Navigation } from "./src/routes";
 
 export default function App() {
   let fontsLoaded = useFonts({
@@ -28,13 +29,9 @@ export default function App() {
   }
 
   return (
-    <SafeArea>
-      {/* <Text style={{ fontFamily: "Poppins_700Bold", fontSize: 30 }}>
-        Open up App.js to start working on your app!
-      </Text> */}
-
-      <Card />
+    <View style={{ flex: 1 }}>
+      <Navigation />
       <StatusBar style="auto" />
-    </SafeArea>
+    </View>
   );
 }

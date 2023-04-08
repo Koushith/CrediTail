@@ -1,9 +1,9 @@
-import { Text as TextComponent, StyleSheet } from "react-native";
+import { Text, StyleSheet } from "react-native";
 
-export const Text = () => {
+export const Typography = () => {
   return (
     <>
-      <TextComponent>Button</TextComponent>
+      <Text>Button</Text>
     </>
   );
 };

@@ -1,6 +1,7 @@
-import { SafeAreaView } from "react-native";
+import { StatusBar, SafeAreaView } from "react-native";
+import styled from "styled-components/native";
 
-//todo- fix for ios
-export const SafeArea = ({ children }) => {
-  return <SafeAreaView>{children}</SafeAreaView>;
-};
+export const SafeArea = styled(SafeAreaView)`
+  flex: 1;
+  ${StatusBar.currentHeight && `margin-top: ${StatusBar.currentHeight}px`};
+`;
