@@ -11,6 +11,8 @@ import {
 } from "@expo-google-fonts/poppins";
 import { Button, Card, SafeArea } from "./src/components";
 import { Navigation } from "./src/routes";
+import { ThemeProvider } from "styled-components/native";
+import { theme } from "./src/themes/theme";
 
 export default function App() {
   let fontsLoaded = useFonts({
@@ -29,9 +31,9 @@ export default function App() {
   }
 
   return (
-    <View style={{ flex: 1 }}>
+    <ThemeProvider theme={theme}>
       <Navigation />
-      <StatusBar style="auto" />
-    </View>
+      <StatusBar style="auto" StatusBarStyle="auto" />
+    </ThemeProvider>
   );
 }
