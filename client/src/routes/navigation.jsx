@@ -1,16 +1,38 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { PaymentSuccessScreen } from "../screens/payment-success/payment-success.screen";
-import { InvoiceScreen, PaymentScreen } from "../screens";
-
+import { InvoiceScreen, PaymentScreen, PaymentSuccessScreen } from "../screens";
+import { View, Text } from "react-native";
 const Stack = createNativeStackNavigator();
+
+const headerConfig = {
+  headerStyle: {
+    backgroundColor: "#2A2D31",
+  },
+
+  headerTintColor: "#ECECEC",
+};
 
 export const Navigation = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Invoice" component={InvoiceScreen} />
-        <Stack.Screen name="Payment" component={PaymentScreen} />
+        <Stack.Screen
+          name="Invoice"
+          component={InvoiceScreen}
+          options={headerConfig}
+        />
+        <Stack.Screen
+          name="Payment"
+          component={PaymentScreen}
+          options={{
+            ...headerConfig,
+            title: (
+              <View style={{ backgroundColor: "red" }}>
+                <Text>I can render this</Text>
+              </View>
+            ),
+          }}
+        />
         <Stack.Screen
           name="PaymentSuccess"
           component={PaymentSuccessScreen}
