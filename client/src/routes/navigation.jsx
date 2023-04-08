@@ -1,6 +1,5 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { View, Text } from "react-native";
 import { PaymentSuccessScreen } from "../screens/payment-success/payment-success.screen";
 import { InvoiceScreen, PaymentScreen } from "../screens";
 
