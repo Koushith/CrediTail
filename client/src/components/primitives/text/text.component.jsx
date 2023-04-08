@@ -1,7 +1,9 @@
+import { Text as TextComponent, StyleSheet } from "react-native";
+
 export const Text = () => {
   return (
     <>
-      <Text>Button</Text>
+      <TextComponent>Button</TextComponent>
     </>
   );
 };
