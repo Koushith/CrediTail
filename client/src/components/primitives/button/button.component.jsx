@@ -5,8 +5,10 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { ButtonBase } from "./button.styles";
+import { useNavigation } from "@react-navigation/native";
 
 export const Button = () => {
+  const navigation = useNavigation();
   return (
     <TouchableOpacity
       style={{
