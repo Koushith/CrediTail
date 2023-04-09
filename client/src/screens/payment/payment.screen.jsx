@@ -1,7 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
 import { Button, View, TouchableOpacity } from "react-native";
 import { Text } from "react-native";
-import { Card, Input, SafeArea } from "../../components";
+import { Card, Input, PaymentCard, SafeArea } from "../../components";
 import { getFullWidth } from "../../utils";
 
 export const PaymentScreen = () => {
@@ -12,10 +12,24 @@ export const PaymentScreen = () => {
         <Input />
       </Card>
 
-      <View style={{ alignItems: "center", justifyContent: "center", flex: 1 }}>
+      <View
+        style={{
+          alignItems: "center",
+          justifyContent: "center",
+          flex: 1,
+          marginTop: 100,
+        }}
+      >
         <Text style={{ fontWeight: 700, fontSize: 16, lineHeight: 14 }}>
           Choose Payment Mode
         </Text>
+
+        <View style={{ flexDirection: "row", gap: 5, marginTop: 50 }}>
+          {/* todo- rename the name */}
+          <PaymentCard />
+          <PaymentCard />
+          <PaymentCard />
+        </View>
       </View>
 
       <View style={{ flex: 1, alignItems: "flex-end", flexDirection: "row" }}>
