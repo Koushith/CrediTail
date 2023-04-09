@@ -15,9 +15,12 @@ import { ThemeProvider } from "styled-components/native";
 import { theme } from "./src/themes/theme";
 import * as SplashScreen from "expo-splash-screen";
 import * as Font from "expo-font";
-import { InvoiceProvider } from "./src/context";
+import { InvoiceProvider, useInvoices } from "./src/context";
+import { useEffect } from "react";
 
 export default function App() {
+  const { getAllInvoices } = useInvoices();
+
   let fontsLoaded = useFonts({
     Poppins_200ExtraLight,
     Poppins_300Light,
@@ -32,6 +35,10 @@ export default function App() {
   if (!fontsLoaded) {
     return null;
   }
+
+  // useEffect(() => {
+  //   getAllInvoices;
+  // }, []);
 
   return (
     <ThemeProvider theme={theme}>

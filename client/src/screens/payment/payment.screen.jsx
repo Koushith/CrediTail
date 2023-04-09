@@ -8,12 +8,13 @@ import { styles } from "./payment.styles";
 export const PaymentScreen = () => {
   const navigation = useNavigation();
   const router = useRoute();
+
   console.log("params.", router.params.billNo);
 
   return (
     <View style={styles.paymentScreenContainer}>
       <Card>
-        <Input />
+        <Input value={router.params.invoiceAmount} />
       </Card>
 
       <View style={styles.actionContainer}>

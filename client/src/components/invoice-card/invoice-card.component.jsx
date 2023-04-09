@@ -6,7 +6,9 @@ export const InvoiceCard = ({ data }) => {
   const navigation = useNavigation();
   return (
     <TouchableOpacity
-      onPress={() => navigation.navigate("Payment", { billNo })}
+      onPress={() =>
+        navigation.navigate("Payment", { billNo, retailerName, invoiceAmount })
+      }
       style={{
         flexDirection: "row",
         justifyContent: "space-between",

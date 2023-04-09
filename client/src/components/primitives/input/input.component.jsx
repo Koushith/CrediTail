@@ -1,6 +1,6 @@
 import { Text, TextInput } from "react-native";
 
-export const Input = () => {
+export const Input = ({ value }) => {
   return (
     <>
       <Text
@@ -22,8 +22,9 @@ export const Input = () => {
           fontSize: 24,
           fontWeight: "400",
           borderRadius: 6,
-          paddingLeft: 20,
+          paddingLeft: 10,
         }}
+        value={`₹ ${value}`}
       />
     </>
   );

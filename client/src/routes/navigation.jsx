@@ -1,4 +1,4 @@
-import { NavigationContainer } from "@react-navigation/native";
+import { NavigationContainer, useRoute } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { InvoiceScreen, PaymentScreen, PaymentSuccessScreen } from "../screens";
 import { View, Text } from "react-native";
@@ -14,6 +14,9 @@ const headerConfig = {
 };
 
 export const Header = () => {
+  const router = useRoute();
+
+  console.log("from headerrrrrr", router.params);
   return (
     <View>
       <Text
@@ -24,7 +27,7 @@ export const Header = () => {
           lineHeight: 24,
         }}
       >
-        MD22/1107651
+        {router.params.billNo}
       </Text>
       <Text
         style={{
@@ -35,7 +38,7 @@ export const Header = () => {
         }}
         ellipsizeMode="tail"
       >
-        AGRAWAL BROTHERS AND SO..
+        {router.params.retailerName}
       </Text>
     </View>
   );
