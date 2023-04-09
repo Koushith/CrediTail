@@ -13,6 +13,8 @@ import { Button, Card, SafeArea } from "./src/components";
 import { Navigation } from "./src/routes";
 import { ThemeProvider } from "styled-components/native";
 import { theme } from "./src/themes/theme";
+import * as SplashScreen from "expo-splash-screen";
+import * as Font from "expo-font";
 
 export default function App() {
   let fontsLoaded = useFonts({

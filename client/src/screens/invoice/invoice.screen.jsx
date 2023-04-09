@@ -5,14 +5,12 @@ import { useNavigation } from "@react-navigation/native";
 export const InvoiceScreen = () => {
   const navigation = useNavigation();
   return (
-    <SafeArea>
+    <>
       <ScrollView style={{ backgroundColor: "#ECECEC", marginTop: 0 }}>
         <InvoiceCard />
         <InvoiceCard />
         <InvoiceCard />
 
-        <InvoiceCard />
-        <InvoiceCard />
         <InvoiceCard />
         <InvoiceCard />
         <InvoiceCard />
@@ -26,6 +24,6 @@ export const InvoiceScreen = () => {
         onPress={() => navigation.navigate("Payment")}
       /> */}
       </ScrollView>
-    </SafeArea>
+    </>
   );
 };

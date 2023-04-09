@@ -11,22 +11,17 @@ export const PaymentSuccessScreen = () => {
   const redirectToHome = () => {
     navigation.navigate("Invoice");
   };
+
   useEffect(() => {
-    const timeOutId = setTimeout(redirectToHome, 3000);
+    const timeOutId = setTimeout(redirectToHome, 6000);
 
     return () => {
       clearTimeout(timeOutId);
     };
   }, []);
 
-  const isIOS = Platform.OS === "ios";
-
-  if (isIOS) {
-    let Fullscreen;
-  }
-
   return (
-    <SafeArea>
+    <>
       <SuccessContainer>
         <Image source={Success} style={{ width: 60, height: 60 }} />
         <TextSecondary style={{ color: "#EFEFEF", marginTop: 30 }}>
@@ -89,6 +84,6 @@ export const PaymentSuccessScreen = () => {
           Redirecting to home screen..
         </Text>
       </View>
-    </SafeArea>
+    </>
   );
 };
