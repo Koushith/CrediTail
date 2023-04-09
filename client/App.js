@@ -15,6 +15,7 @@ import { ThemeProvider } from "styled-components/native";
 import { theme } from "./src/themes/theme";
 import * as SplashScreen from "expo-splash-screen";
 import * as Font from "expo-font";
+import { InvoiceProvider } from "./src/context";
 
 export default function App() {
   let fontsLoaded = useFonts({
@@ -34,8 +35,10 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Navigation />
-      <StatusBar style="auto" StatusBarStyle="auto" />
+      <InvoiceProvider>
+        <Navigation />
+        <StatusBar style="auto" StatusBarStyle="auto" />
+      </InvoiceProvider>
     </ThemeProvider>
   );
 }

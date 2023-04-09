@@ -1,11 +1,12 @@
 import { useNavigation } from "@react-navigation/native";
 import { Text, View, TouchableOpacity } from "react-native";
 
-export const InvoiceCard = () => {
+export const InvoiceCard = ({ data }) => {
+  const { billNo, retailerName, invoiceAmount } = data;
   const navigation = useNavigation();
   return (
     <TouchableOpacity
-      onPress={() => navigation.navigate("Payment")}
+      onPress={() => navigation.navigate("Payment", { billNo })}
       style={{
         flexDirection: "row",
         justifyContent: "space-between",
@@ -27,7 +28,7 @@ export const InvoiceCard = () => {
             fontWeight: 700,
           }}
         >
-          MD22/110656
+          {billNo}
         </Text>
         <Text
           style={{
@@ -38,7 +39,7 @@ export const InvoiceCard = () => {
             fontWeight: 400,
           }}
         >
-          PADMAMBA PRINTERS
+          {retailerName}
         </Text>
       </View>
       <View style={{}}>
@@ -51,7 +52,7 @@ export const InvoiceCard = () => {
             fontWeight: 700,
           }}
         >
-          ₹5
+          ₹{invoiceAmount}
         </Text>
       </View>
     </TouchableOpacity>

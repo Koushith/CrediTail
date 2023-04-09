@@ -1,4 +1,4 @@
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import { View, TouchableOpacity } from "react-native";
 import { Text } from "react-native";
 import { Card, Input, PaymentCard, SafeArea, Button } from "../../components";
@@ -7,6 +7,8 @@ import { styles } from "./payment.styles";
 
 export const PaymentScreen = () => {
   const navigation = useNavigation();
+  const router = useRoute();
+  console.log("params.", router.params.billNo);
 
   return (
     <View style={styles.paymentScreenContainer}>

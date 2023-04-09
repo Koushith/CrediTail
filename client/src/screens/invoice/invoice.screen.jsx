@@ -1,29 +1,16 @@
 import { Button, ScrollView, Text, View } from "react-native";
 import { InvoiceCard, SafeArea } from "../../components";
 import { useNavigation } from "@react-navigation/native";
+import { useInvoices } from "../../context";
+import { FlatList } from "react-native";
 
 export const InvoiceScreen = () => {
   const navigation = useNavigation();
-  return (
-    <>
-      <ScrollView style={{ backgroundColor: "#ECECEC", marginTop: 0 }}>
-        <InvoiceCard />
-        <InvoiceCard />
-        <InvoiceCard />
+  const { invoices } = useInvoices();
 
-        <InvoiceCard />
-        <InvoiceCard />
-        <InvoiceCard />
-        <InvoiceCard />
-        <InvoiceCard />
-        <InvoiceCard />
-        <InvoiceCard />
+  const renderItem = ({ item }) => {
+    return <InvoiceCard data={item} />;
+  };
 
-        {/* <Button
-        title="Go to Details"
-        onPress={() => navigation.navigate("Payment")}
-      /> */}
-      </ScrollView>
-    </>
-  );
+  return <FlatList data={invoices} renderItem={renderItem} />;
 };

@@ -1,15 +1,24 @@
 import mongoose from "mongoose";
 import { Retailer } from "./retailer.model.js";
 import { Sales } from "./sales.model.js";
+import { Brand } from "./brand.model.js";
+
+//todo- fix relationships
 
 const InvoiceSchema = mongoose.Schema({
+  brand: {
+    // type: mongoose.Schema.ObjectId,
+    type: String,
+    // ref: Brand,
+  },
   billNo: {
     type: String,
     required: true,
   },
   retailerName: {
-    type: mongoose.Schema.ObjectId,
-    ref: Retailer,
+    // type: mongoose.Schema.ObjectId,
+    // ref: Retailer,
+    type: String,
   },
   invoiceAmount: {
     type: Number,
@@ -22,16 +31,23 @@ const InvoiceSchema = mongoose.Schema({
   },
   isSettled: {
     type: Boolean,
+    default: false,
   },
 
   invoiceDate: {
-    type: Number,
+    type: String, //chanfe
   },
-  collectedBy: {
-    type: mongoose.Schema.ObjectId,
-    ref: Sales,
+  salesRepId: {
+    type: String,
+  },
+  salesManName: {
+    // type: mongoose.Schema.ObjectId,
+    // ref: Sales,
+    type: String,
   },
   collectionDate: {
-    type: Date,
+    type: String, //change later
   },
 });
+
+export const Invoice = mongoose.model("Invoice", InvoiceSchema);
