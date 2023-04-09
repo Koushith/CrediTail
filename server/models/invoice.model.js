@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import { Retailer } from "./retailer.model.js";
+import { Sales } from "./sales.model.js";
 
 const InvoiceSchema = mongoose.Schema({
   billNo: {
@@ -22,11 +23,13 @@ const InvoiceSchema = mongoose.Schema({
   isSettled: {
     type: Boolean,
   },
-  billDate: {
-    type: Date,
-  },
+
   invoiceDate: {
     type: Number,
+  },
+  collectedBy: {
+    type: mongoose.Schema.ObjectId,
+    ref: Sales,
   },
   collectionDate: {
     type: Date,

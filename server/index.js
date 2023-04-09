@@ -2,8 +2,10 @@ import express from "express";
 import { connectDb } from "./db/db.connect.js";
 import cors from "cors";
 import dotenv from "dotenv";
-import getInvoice from "./routes/invoice.route.js";
-import getAllBrands from "./routes/brand.route.js";
+import invoice from "./routes/invoice.route.js";
+import brand from "./routes/brand.route.js";
+import retailer from "./routes/retailer.route.js";
+import sales from "./routes/sales.route.js";
 import { routeNotFound } from "./middlewares/404error.mddileware.js";
 
 const app = express();
@@ -20,8 +22,10 @@ app.get("/", (req, res) => {
   res.send("Helloooo");
 });
 
-app.use("/v1/invoice", getInvoice);
-app.use("/v1/all-brands", getAllBrands);
+app.use("/v1/invoice", invoice);
+app.use("/v1/all-brand", brand);
+app.use("/v1/retailer", retailer);
+app.use("/v1/sales", sales);
 
 //404- middleware - add a custom error message if the route is not found
 

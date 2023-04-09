@@ -1,11 +1,10 @@
 import express from "express";
 import { Brand } from "../models/brand.model.js";
+import { createBrand, getAllBrands } from "../controllers/brand.controller.js";
 
 const router = express.Router();
 
-router.get("/", async (req, res) => {
-  const brand = await Brand.find({});
-  res.send(brand);
-});
+router.get("/", getAllBrands);
+router.post("/", createBrand);
 
 export default router;
