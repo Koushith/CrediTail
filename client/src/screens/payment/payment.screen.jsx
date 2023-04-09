@@ -41,6 +41,7 @@ export const PaymentScreen = () => {
             alignItems: "center",
             justifyContent: "center",
           }}
+          onPress={() => navigation.navigate("Success")}
         >
           <Text style={{ color: "#fff", fontWeight: 400, fontSize: 16 }}>
             Pay now

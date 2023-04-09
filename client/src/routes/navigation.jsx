@@ -29,7 +29,7 @@ export const Navigation = () => {
           }}
         />
         <Stack.Screen
-          name="PaymentSuccess"
+          name="Success"
           component={PaymentSuccessScreen}
           options={{ headerShown: false }}
         />
