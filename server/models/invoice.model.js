@@ -11,9 +11,18 @@ const InvoiceSchema = mongoose.Schema({
     type: String,
     // ref: Brand,
   },
+  brandId: {
+    type: String,
+  },
   billNo: {
     type: String,
     required: true,
+  },
+  retailderId: {
+    type: String,
+  },
+  retailerPhone: {
+    type: Number,
   },
   retailerName: {
     // type: mongoose.Schema.ObjectId,
