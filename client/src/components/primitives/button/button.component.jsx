@@ -1,12 +1,26 @@
-import { Button as ButtonV, Pressable, Text } from "react-native";
+import {
+  Button as ButtonV,
+  Pressable,
+  Text,
+  TouchableOpacity,
+} from "react-native";
 import { ButtonBase } from "./button.styles";
 
 export const Button = () => {
   return (
-    <ButtonBase
-    // onPress={onPressLearnMore}
+    <TouchableOpacity
+      style={{
+        height: 56,
+        backgroundColor: "#2760B6",
+        width: "100%",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+      onPress={() => navigation.navigate("Success")}
     >
-      <Text>Hello</Text>
-    </ButtonBase>
+      <Text style={{ color: "#fff", fontWeight: 400, fontSize: 16 }}>
+        Pay now
+      </Text>
+    </TouchableOpacity>
   );
 };

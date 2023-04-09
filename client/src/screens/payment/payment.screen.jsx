@@ -1,25 +1,20 @@
 import { useNavigation } from "@react-navigation/native";
-import { Button, View, TouchableOpacity } from "react-native";
+import { View, TouchableOpacity } from "react-native";
 import { Text } from "react-native";
-import { Card, Input, PaymentCard, SafeArea } from "../../components";
+import { Card, Input, PaymentCard, SafeArea, Button } from "../../components";
 import { getFullWidth } from "../../utils";
+import { styles } from "./payment.styles";
 
 export const PaymentScreen = () => {
   const navigation = useNavigation();
+
   return (
-    <View style={{ flex: 1 }}>
+    <View style={styles.paymentScreenContainer}>
       <Card>
         <Input />
       </Card>
 
-      <View
-        style={{
-          alignItems: "center",
-          justifyContent: "center",
-          flex: 1,
-          marginTop: 100,
-        }}
-      >
+      <View style={styles.actionContainer}>
         <Text style={{ fontWeight: 700, fontSize: 16, lineHeight: 14 }}>
           Choose Payment Mode
         </Text>
@@ -33,20 +28,7 @@ export const PaymentScreen = () => {
       </View>
 
       <View style={{ flex: 1, alignItems: "flex-end", flexDirection: "row" }}>
-        <TouchableOpacity
-          style={{
-            height: 56,
-            backgroundColor: "#2760B6",
-            width: "100%",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-          onPress={() => navigation.navigate("Success")}
-        >
-          <Text style={{ color: "#fff", fontWeight: 400, fontSize: 16 }}>
-            Pay now
-          </Text>
-        </TouchableOpacity>
+        <Button />
       </View>
     </View>
   );
