@@ -16,7 +16,7 @@ export const InvoiceCard = ({ data }) => {
         <Text style={styles.billNo}>{billNo}</Text>
         <Text style={styles.retailerName}>{retailerName}</Text>
       </View>
-      <View style={{}}>
+      <View>
         <Text style={styles.inVoiceAmount}>₹{invoiceAmount}</Text>
       </View>
     </TouchableOpacity>
