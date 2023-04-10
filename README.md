@@ -72,7 +72,64 @@ npx expo start
 
 
 
+### DB Schemas
 
+#### Invoice
+
+```js 
+
+- brandName - ref to brand Schema
+- brandID - ref to brand Schema if
+- billNo - Int
+- retailerId - Int
+- retailerName - String
+- RetailerNumber - Number
+- InvoiceAmount - Int
+- PendingAmount - Int
+- invoiceDate - Date
+- collectionDate - Date
+
+```
+
+#### SalesRep
+
+#### Brand
+
+#### Retailer
+
+
+### API Endpoints
+
+#### Get all Invoices
+
+```js 
+/**
+ * Returns x raised to the n-th power.
+ *
+ * @param {number} x The number to raise.
+ * @param {number} n The power, must be a natural number.
+ * @return {number} x raised to the n-th power.
+ */
+ 
+ 
+
+
+```
+
+#### Create New Invoice
+
+```
+
+```
+
+#### Update Invoice
+
+
+#### Create Sales Rep
+
+#### Create New Brand
+
+#### Create Retailer
 
 
 
