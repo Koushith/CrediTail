@@ -104,39 +104,113 @@ npx expo start
 #### Retailer
 
 
+### DB Schemas
+
+#### Invoice
+
+```js 
+
+- brandName - ref to brand Schema
+- brandID - ref to brand Schema if
+- billNo - Int
+- retailerId - Int
+- retailerName - String
+- RetailerNumber - Number
+- InvoiceAmount - Int
+- PendingAmount - Int
+- invoiceDate - Date
+- collectionDate - Date
+
+```
+
+#### SalesRep
+
+#### Brand
+
+#### Retailer
+
+
 ### API Endpoints
 
 #### Get all Invoices
 
-```js 
-/**
- * Returns x raised to the n-th power.
- *
- * @param {number} x The number to raise.
- * @param {number} n The power, must be a natural number.
- * @return {number} x raised to the n-th power.
- */
- 
- 
+```
 
+METHOD - GET
+
+/v1/invoices
 
 ```
+
 
 #### Create New Invoice
 
 ```
+METHOD - POST
+
+/v1/invoice
+
+Body Data
+    - 
 
 ```
 
 #### Update Invoice
 
+```
+METHOD - PUT
+
+v1/invoice/:id
+
+// this api endpoint is used to update the invoice- we are allowing only invoice amount and due anount to update
+
+Body Data
+
+- invoiceAmount
+- paidAmount
+```
+
 
 #### Create Sales Rep
 
+```
+METHOD - POST
+
+v1/sales
+
+Body Data
+
+- salesRepName
+- salesRepId
+
+```
+
 #### Create New Brand
+
+```
+METHOD - POST
+
+v1/brand
+
+Body Data
+
+- brandName
+- brandId
+
+```
 
 #### Create Retailer
 
+```
+METHOD - POST
+
+v1/retailer
+
+Body Data
+- retailerName
+- retailerId
+
+```
 
 
 
