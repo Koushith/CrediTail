@@ -24,6 +24,12 @@
 * [Authors](#authors)
 * [Acknowledgements](#acknowledgements)
 
+
+## Screenshots
+
+![Dribbble shot - 1](https://user-images.githubusercontent.com/30016242/230851429-24b4d646-01ab-4928-ba6e-ed71ad78a4f5.png)
+
+
 ## Built With
 
 React Native with Expo CLI, Node/Express and MongoDB
