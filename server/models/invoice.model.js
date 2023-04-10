@@ -32,9 +32,9 @@ const InvoiceSchema = mongoose.Schema({
   invoiceAmount: {
     type: Number,
   },
-  pendingAmount: {
-    type: Number, // by default it will be invoice amount- later upgraded with difference amount
-  },
+  // pendingAmount: {
+  //   type: Number, // by default it will be invoice amount- later upgraded with difference amount
+  // },
   paymentMethod: {
     type: String,
   },

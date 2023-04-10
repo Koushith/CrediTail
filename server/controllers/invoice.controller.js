@@ -150,7 +150,7 @@ export const updateInvoice = async (req, res) => {
         {
           invoiceAmount:
             Number(invoiceamount.invoiceAmount) - Number(pendingAmount),
-          pendingAmount: invoiceAmount,
+          // pendingAmount: Number(invoiceamount.invoiceAmount),
 
           paymentMethod,
         }

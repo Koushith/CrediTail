@@ -4,12 +4,32 @@ import { Text } from "react-native";
 import { Card, Input, PaymentCard, SafeArea, Button } from "../../components";
 import { getFullWidth } from "../../utils";
 import { styles } from "./payment.styles";
+import { useState } from "react";
 
 export const PaymentScreen = () => {
   const navigation = useNavigation();
   const router = useRoute();
 
-  console.log("params.", router.params.billNo);
+  const paymentMethods = [
+    {
+      name: "Online",
+      id: 1,
+    },
+    {
+      name: "Cash",
+      id: 2,
+    },
+    {
+      name: "Cheque",
+      id: 3,
+    },
+  ];
+
+  const [selectedItemId, setSelectedItemId] = useState(null);
+
+  const handleSelect = (itemId) => {
+    setSelectedItemId(itemId);
+  };
 
   return (
     <View style={styles.paymentScreenContainer}>
@@ -24,9 +44,17 @@ export const PaymentScreen = () => {
 
         <View style={{ flexDirection: "row", gap: 5, marginTop: 50 }}>
           {/* todo- rename the name */}
-          <PaymentCard />
-          <PaymentCard />
-          <PaymentCard />
+
+          {paymentMethods.map((method) => (
+            <View key={method.id}>
+              <PaymentCard
+                method={method}
+                key={method.id}
+                isSelected={selectedItemId === method.id}
+                onSelect={handleSelect}
+              />
+            </View>
+          ))}
         </View>
       </View>
 
