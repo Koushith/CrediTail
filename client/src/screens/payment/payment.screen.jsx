@@ -21,6 +21,7 @@ export const PaymentScreen = () => {
   const billNo = router.params.billNo;
 
   const [selectedItemId, setSelectedItemId] = useState(null);
+  const [retailerName, setRetailerName] = useState(router.params.retailerName);
 
   const paymentMethodSelector = (id) => {
     setIsDisabled(false);
@@ -66,20 +67,22 @@ export const PaymentScreen = () => {
             paymentMethod: paymentMethod,
           }
         );
+        setRetailerName(payment?.data?.updatedDiff?.retailerName);
+        console.log("ret", retailerName);
 
         if (payment) {
           setIsLoading(false);
-          console.log(payment.data.updatedDiff.retailerName);
+
           navigation.navigate("Success", {
             paymentMethod: paymentMethod,
             billNo,
             payAmount,
-            retailerName: `${payment.data.updatedDiff.retailerName}`,
+            retailerName,
           });
         }
       }
     } catch (e) {
-      console.log(e);
+      console.log(e, "error is here");
     }
   };
   useEffect(() => {
