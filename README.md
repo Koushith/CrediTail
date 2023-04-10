@@ -146,6 +146,6 @@ Distributed under the MIT License. See [LICENSE](https://github.com/koushith/Cre
 
 ## Authors
 
-* **Koushith B R** - [Koushith B R](https://github.com/koushith) - **
+* **Koushith B R** - [Koushith B R](https://github.com/koushith) - ** -
 
 
