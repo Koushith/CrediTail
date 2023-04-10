@@ -104,30 +104,6 @@ npx expo start
 #### Retailer
 
 
-### DB Schemas
-
-#### Invoice
-
-```js 
-
-- brandName - ref to brand Schema
-- brandID - ref to brand Schema if
-- billNo - Int
-- retailerId - Int
-- retailerName - String
-- RetailerNumber - Number
-- InvoiceAmount - Int
-- PendingAmount - Int
-- invoiceDate - Date
-- collectionDate - Date
-
-```
-
-#### SalesRep
-
-#### Brand
-
-#### Retailer
 
 
 ### API Endpoints
