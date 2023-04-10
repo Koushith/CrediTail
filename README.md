@@ -35,35 +35,45 @@ React Native with Expo CLI, Node/Express and MongoDB
 
 
 
-* npm
-
-```sh
-npm install npm@latest -g
-```
+- Expo CLI and ExpoGO if you are running locally
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
 
-2. Clone the repo
+1. Clone the repo
 
 ```sh
-git clone https://github.com/your_username_/Project-Name.git
+https://github.com/Koushith/CrediTail.git
 ```
 
-3. Install NPM packages
+3. Install NPM packages on both the directory (Client and Server)
 
 ```sh
+cd server
 npm install
+npm run nodemon
+```
+```sh
+cd client
+npm install
+npm run web // this will run RN web
+
+//or
+
+npm run android  // you need to open the emulator manually and run this command.
+
+// USING EXPO GO
+
+npx expo start
+
+// open the expo app on phone and scan the QR Code.
+
 ```
 
-4. Enter your API in `config.js`
 
-```JS
-const API_KEY = 'ENTER YOUR API';
-```
 
-### Creating A Pull Request
+
+
 
 
 
@@ -75,8 +85,4 @@ Distributed under the MIT License. See [LICENSE](https://github.com/koushith/Cre
 
 * **Koushith B R** - *Software Engineer* - [Koushith B R](https://github.com/koushith) - **
 
-## Acknowledgements
 
-* []()
-* []()
-* []()
