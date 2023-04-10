@@ -32,7 +32,7 @@ export const createInvoice = async (req, res) => {
       retailerId,
       retailerPhone,
       invoiceAmount,
-      pendingAmount,
+      pendingAmount: invoiceAmount,
       isSettled,
       invoiceDate,
       salesManName,
@@ -107,46 +107,67 @@ export const getInvoiceById = async (req, res) => {
 export const updateInvoice = async (req, res) => {
   try {
     const { id } = req.params;
-    const { pendingAmount } = req.body;
-
-    console.log({ pendingAmount });
-
-    //get the ivoice
-    // get the invoice amout
-    // check if  invoice amout === pending amount
-    //                       - if yes -> setSettled to true, invoice amout to 0
-    //                       -if no -> get the diff and update the invoice amount with the difference
+    const { pendingAmount, paymentMethod } = req.body;
+    console.log("payment methodd", paymentMethod);
 
     const invoice = await Invoice.findOne({ billNo: id });
-    console.log("found", invoice);
 
-    if (invoice) {
-      let amountToBePaid = invoice.invoiceAmount;
-      console.log("amount to br paid", amountToBePaid);
+    console.log("invoice found", invoice);
 
-      let difference = amountToBePaid - pendingAmount;
+    if (Number(invoice.invoiceAmount) === Number(pendingAmount)) {
+      console.log("true, amount matched- can settle");
+      let invoiceAmount = 0;
+      let pendingAmount = 0;
+      let isSettled = true;
+      //this method returns old result, but updated
+      const updated = await Invoice.findOneAndUpdate(
+        { billNo: id },
+        {
+          invoiceAmount,
+          pendingAmount,
+          isSettled,
+          paymentMethod,
+        }
+      );
 
-      if (pendingAmount === amountToBePaid) {
-        //payment closure
-      } else {
-        // update with diffrence
-      }
+      console.log("updated", updated);
+
+      res.status(200).json({
+        message: "Invoice settled",
+        updated,
+      });
+    } else {
+      //update the diff
+      console.log("inside else block");
+      // const { pendingAmount } = req.body;
+      // console.log("pendin amount- else check", pendingAmount);
+      // let difference = Number(invoiceAmount) - Number(pendingAmount);
+
+      let invoiceamount = await Invoice.findOne({ billNo: id });
+      console.log("invoiceeeeeeeeeeee", invoiceamount);
+      const updatedDiff = await Invoice.findOneAndUpdate(
+        { billNo: id },
+        {
+          invoiceAmount:
+            Number(invoiceamount.invoiceAmount) - Number(pendingAmount),
+          pendingAmount: invoiceAmount,
+
+          paymentMethod,
+        }
+      );
+
+      console.log("updated", updatedDiff);
+
+      res.status(200).json({
+        message: "Invoice updated with latest",
+        updatedDiff,
+      });
     }
-
-    //  const _link = await Link.findByIdAndUpdate(id, {
-    //    title,
-    //    category,
-    //    link,
-    //  });
-
-    res.status(200).json({
-      message: "success",
-      //  _link,
-    });
   } catch (e) {
-    res.status(400).json({
-      message: "something went wrong while editing",
+    res.json({
+      message: "couldnot update, error occured",
       error: e.message,
+      e,
     });
   }
 };
