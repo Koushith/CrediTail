@@ -48,7 +48,7 @@ export const InvoiceCard = ({ data }) => {
         <Text
           style={{
             fontSize: 16,
-            lineHeight: 14,
+            // lineHeight: 14,
 
             color: "#000",
             fontWeight: 700,

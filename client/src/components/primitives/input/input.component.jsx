@@ -1,6 +1,6 @@
 import { Text, TextInput } from "react-native";
 
-export const Input = ({ value }) => {
+export const Input = ({ value, onChangeText }) => {
   return (
     <>
       <Text
@@ -14,6 +14,7 @@ export const Input = ({ value }) => {
         Amount
       </Text>
       <TextInput
+        onChangeText={onChangeText}
         style={{
           marginTop: 12,
           height: 50,
@@ -24,7 +25,7 @@ export const Input = ({ value }) => {
           borderRadius: 6,
           paddingLeft: 10,
         }}
-        value={`₹ ${value}`}
+        value={value}
       />
     </>
   );

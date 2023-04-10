@@ -7,8 +7,7 @@ import {
 import { ButtonBase } from "./button.styles";
 import { useNavigation } from "@react-navigation/native";
 
-export const Button = () => {
-  const navigation = useNavigation();
+export const Button = ({ onPress, text }) => {
   return (
     <TouchableOpacity
       style={{
@@ -18,10 +17,10 @@ export const Button = () => {
         alignItems: "center",
         justifyContent: "center",
       }}
-      onPress={() => navigation.navigate("Success")}
+      onPress={onPress}
     >
       <Text style={{ color: "#fff", fontWeight: 400, fontSize: 16 }}>
-        Pay now
+        {text}
       </Text>
     </TouchableOpacity>
   );

@@ -3,10 +3,13 @@ import { SafeArea, TextSecondary, TextXL } from "../../components";
 import { SuccessContainer } from "./payment-success.styles";
 import Success from "../../assets/images/success.png";
 import { useEffect } from "react";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
+import { useInvoices } from "../../context";
 
 export const PaymentSuccessScreen = () => {
   const navigation = useNavigation();
+  const router = useRoute();
+  const { getAllInvoices } = useInvoices();
 
   const redirectToHome = () => {
     navigation.navigate("Invoice");
@@ -14,20 +17,22 @@ export const PaymentSuccessScreen = () => {
 
   useEffect(() => {
     const timeOutId = setTimeout(redirectToHome, 6000);
-
+    getAllInvoices();
     return () => {
       clearTimeout(timeOutId);
     };
-  }, []);
+  }, [router]);
 
   return (
     <>
       <SuccessContainer>
         <Image source={Success} style={{ width: 60, height: 60 }} />
         <TextSecondary style={{ color: "#EFEFEF", marginTop: 30 }}>
-          MD22/1107651
+          {router.params.billNo}
         </TextSecondary>
-        <TextXL style={{ color: "#fff", marginTop: 16 }}>₹500</TextXL>
+        <TextXL style={{ color: "#fff", marginTop: 16 }}>
+          ₹{`${router.params.payAmount}`}
+        </TextXL>
 
         <Text
           style={{
@@ -38,7 +43,7 @@ export const PaymentSuccessScreen = () => {
             marginTop: 30,
           }}
         >
-          AGRAWAL BROTHERS AND SONS
+          {router.params.retailerName}
         </Text>
 
         <View
@@ -60,7 +65,7 @@ export const PaymentSuccessScreen = () => {
             marginTop: 28,
           }}
         >
-          PAID BY CASH
+          {router.params.paymentMethod}
         </Text>
       </SuccessContainer>
       <View

@@ -15,7 +15,7 @@ import { ThemeProvider } from "styled-components/native";
 import { theme } from "./src/themes/theme";
 import * as SplashScreen from "expo-splash-screen";
 import * as Font from "expo-font";
-import { InvoiceProvider, useInvoices } from "./src/context";
+import { InvoiceProvider, PaymentProvider, useInvoices } from "./src/context";
 import { useEffect } from "react";
 
 export default function App() {
@@ -43,8 +43,10 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <InvoiceProvider>
-        <Navigation />
-        <StatusBar style="auto" StatusBarStyle="auto" />
+        <PaymentProvider>
+          <Navigation />
+          <StatusBar style="auto" StatusBarStyle="auto" />
+        </PaymentProvider>
       </InvoiceProvider>
     </ThemeProvider>
   );
