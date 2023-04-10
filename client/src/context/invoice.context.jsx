@@ -8,10 +8,6 @@ export const InvoiceProvider = ({ children }) => {
 
   const getAllInvoices = async () => {
     try {
-      // const method =
-      //   Platform.OS === "ios"
-      //     ? uriEndPoint.method.toLowerCase()
-      //     : uriEndPoint.method;
       const { data } = await axios.get(
         "https://nodejs-production-8b92.up.railway.app/v1/invoice",
         {

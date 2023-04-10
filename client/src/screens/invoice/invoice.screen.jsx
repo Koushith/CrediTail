@@ -1,11 +1,10 @@
-import { Button, ScrollView, Text, View, RefreshControl } from "react-native";
-import { InvoiceCard, SafeArea } from "../../components";
-import { useNavigation } from "@react-navigation/native";
-import { useInvoices } from "../../context";
 import { FlatList } from "react-native";
+import { RefreshControl } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { InvoiceCard } from "../../components";
+import { useInvoices } from "../../context";
 
 export const InvoiceScreen = () => {
-  const navigation = useNavigation();
   const { invoices, getAllInvoices } = useInvoices();
 
   const onRefresh = () => {

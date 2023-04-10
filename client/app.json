@@ -11,19 +11,28 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": ["*/"],
+    "assetBundlePatterns": [
+      "*/"
+    ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.koushith.client"
     },
     "android": {
       "usesCleartextTraffic": true,
       "adaptiveIcon": {
         "foregroundImage": "./src/assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.koushith.client"
     },
     "web": {
       "favicon": "./src/assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "04b6e0d7-8b6d-43b6-add3-04bf9b44720c"
+      }
     }
   }
 }

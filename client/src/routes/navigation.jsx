@@ -1,22 +1,14 @@
+import { View, Text } from "react-native";
 import { NavigationContainer, useRoute } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { InvoiceScreen, PaymentScreen, PaymentSuccessScreen } from "../screens";
-import { View, Text } from "react-native";
+import { headerConfig } from "../utils";
 
 const Stack = createNativeStackNavigator();
-
-const headerConfig = {
-  headerStyle: {
-    backgroundColor: "#2A2D31",
-  },
-
-  headerTintColor: "#ECECEC",
-};
 
 export const Header = () => {
   const router = useRoute();
 
-  console.log("from headerrrrrr", router.params);
   return (
     <View>
       <Text

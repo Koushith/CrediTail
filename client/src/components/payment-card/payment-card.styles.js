@@ -1,5 +1,5 @@
 import styled from "styled-components/native";
-import { View, TouchableOpacity } from "react-native";
+import { StyleSheet } from "react-native";
 
 export const PaymentMethodContainer = styled.TouchableOpacity`
   border-radius: 12px;
@@ -9,3 +9,12 @@ export const PaymentMethodContainer = styled.TouchableOpacity`
   align-items: center;
   justify-content: center;
 `;
+
+export const styles = StyleSheet.create({
+  text: {
+    fontSize: 16,
+    lineHeight: 24,
+    color: "#2f2f2f",
+    fontWeight: 400,
+  },
+});

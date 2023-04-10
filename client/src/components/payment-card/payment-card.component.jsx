@@ -1,32 +1,17 @@
 import { Text } from "react-native";
-import { PaymentMethodContainer } from "./payment-card.styles";
-import { useState } from "react";
+import { PaymentMethodContainer, styles } from "./payment-card.styles";
 
 export const PaymentCard = (props) => {
-  const { method } = props;
-
-  // const [isSelected, setIsSelectd] = useState(false);
-
-  const { item, isSelected, onSelect } = props;
+  const { item, isSelected, onSelect, onPress, method } = props;
   const backgroundColor = isSelected ? "#DFE8F4" : "#EFEFEF";
 
   return (
     <PaymentMethodContainer
       style={{ backgroundColor }}
       onClick={() => onSelect(item.id)}
-      role="button"
-      tabIndex={0}
+      onPress={onPress}
     >
-      <Text
-        style={{
-          fontSize: 16,
-          lineHeight: 24,
-          color: "#2f2f2f",
-          fontWeight: 400,
-        }}
-      >
-        {method.name}
-      </Text>
+      <Text style={styles.text}>{method.name}</Text>
     </PaymentMethodContainer>
   );
 };

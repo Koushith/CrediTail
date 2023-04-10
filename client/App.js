@@ -19,8 +19,6 @@ import { InvoiceProvider, PaymentProvider, useInvoices } from "./src/context";
 import { useEffect } from "react";
 
 export default function App() {
-  const { getAllInvoices } = useInvoices();
-
   let fontsLoaded = useFonts({
     Poppins_200ExtraLight,
     Poppins_300Light,
@@ -35,10 +33,6 @@ export default function App() {
   if (!fontsLoaded) {
     return null;
   }
-
-  // useEffect(() => {
-  //   getAllInvoices;
-  // }, []);
 
   return (
     <ThemeProvider theme={theme}>

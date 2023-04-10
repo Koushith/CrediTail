@@ -1,10 +1,10 @@
-import { Image, Platform, Text, View } from "react-native";
-import { SafeArea, TextSecondary, TextXL } from "../../components";
-import { SuccessContainer } from "./payment-success.styles";
-import Success from "../../assets/images/success.png";
 import { useEffect } from "react";
 import { useNavigation, useRoute } from "@react-navigation/native";
+import { Image, Text, View } from "react-native";
+import { TextSecondary, TextXL } from "../../components";
+import { SuccessContainer, styles } from "./payment-success.styles";
 import { useInvoices } from "../../context";
+import Success from "../../assets/images/success.png";
 
 export const PaymentSuccessScreen = () => {
   const navigation = useNavigation();
@@ -26,68 +26,22 @@ export const PaymentSuccessScreen = () => {
   return (
     <>
       <SuccessContainer>
-        <Image source={Success} style={{ width: 60, height: 60 }} />
-        <TextSecondary style={{ color: "#EFEFEF", marginTop: 30 }}>
+        <Image source={Success} style={styles.successImage} />
+        <TextSecondary style={styles.billNo}>
           {router.params.billNo}
         </TextSecondary>
-        <TextXL style={{ color: "#fff", marginTop: 16 }}>
+
+        <TextXL style={styles.payAmount}>
           ₹{`${router.params.payAmount}`}
         </TextXL>
 
-        <Text
-          style={{
-            fontWeight: 400,
-            fontSize: 16,
-            lineHeight: 21,
-            color: "#EFEFEF",
-            marginTop: 30,
-          }}
-        >
-          {router.params.retailerName}
-        </Text>
+        <Text style={styles.retailerName}>{router.params.retailerName}</Text>
 
-        <View
-          style={{
-            marginTop: 43,
-            width: "80%",
-            borderWidth: 1,
-            borderStyle: "dashed",
-            borderColor: "#f4f4f4",
-          }}
-        ></View>
-
-        <Text
-          style={{
-            fontWeight: 400,
-            fontSize: 24,
-            lineHeight: 24,
-            color: "#fff",
-            marginTop: 28,
-          }}
-        >
-          {router.params.paymentMethod}
-        </Text>
+        <View style={styles.seperator}></View>
+        <Text style={styles.paymentMethod}>{router.params.paymentMethod}</Text>
       </SuccessContainer>
-      <View
-        style={{
-          backgroundColor: "#188748",
-
-          // backgroundColor: "188748",
-          flexDirection: "column",
-          alignItems: "center",
-        }}
-      >
-        <Text
-          style={{
-            fontWeight: 400,
-            fontSize: 12,
-            lineHeight: 21,
-            color: "#EFEFEF",
-            marginBottom: 30,
-          }}
-        >
-          Redirecting to home screen..
-        </Text>
+      <View style={styles.bottom}>
+        <Text style={styles.redirect}>Redirecting to home screen..</Text>
       </View>
     </>
   );
