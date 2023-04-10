@@ -6,7 +6,6 @@ export const getAllBrands = async (req, res) => {
     const links = await Brand.find({});
 
     if (links) {
-      //todo- check status codes and update it correctly
       res.status(200).json({
         links,
       });

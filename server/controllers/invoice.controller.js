@@ -1,7 +1,3 @@
-// get all invoice
-// create invoice
-// update invoice-amount
-
 import { Invoice } from "../models/invoice.model.js";
 
 //POST- create an ivoice
@@ -103,6 +99,9 @@ export const getInvoiceById = async (req, res) => {
 };
 
 //update invoice - ALLOW ONLY PAYMENT TO UPDATE- SET SETTLED IF DIFF ==0
+// get all invoice
+// create invoice
+// update invoice-amount
 
 export const updateInvoice = async (req, res) => {
   try {
@@ -119,7 +118,7 @@ export const updateInvoice = async (req, res) => {
       let invoiceAmount = 0;
       let pendingAmount = 0;
       let isSettled = true;
-      //this method returns old result, but updated
+
       const updated = await Invoice.findOneAndUpdate(
         { billNo: id },
         {
@@ -137,26 +136,17 @@ export const updateInvoice = async (req, res) => {
         updated,
       });
     } else {
-      //update the diff
-      console.log("inside else block");
-      // const { pendingAmount } = req.body;
-      // console.log("pendin amount- else check", pendingAmount);
-      // let difference = Number(invoiceAmount) - Number(pendingAmount);
-
       let invoiceamount = await Invoice.findOne({ billNo: id });
-      console.log("invoiceeeeeeeeeeee", invoiceamount);
+
       const updatedDiff = await Invoice.findOneAndUpdate(
         { billNo: id },
         {
           invoiceAmount:
             Number(invoiceamount.invoiceAmount) - Number(pendingAmount),
-          // pendingAmount: Number(invoiceamount.invoiceAmount),
 
           paymentMethod,
         }
       );
-
-      console.log("updated", updatedDiff);
 
       res.status(200).json({
         message: "Invoice updated with latest",
@@ -171,5 +161,3 @@ export const updateInvoice = async (req, res) => {
     });
   }
 };
-
-//show all settles invoice

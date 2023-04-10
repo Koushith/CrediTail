@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 
+//Todo - move this to .env
 export const connectDb = async () => {
   try {
     const conn = await mongoose.connect(

@@ -1,7 +1,7 @@
 import express from "express";
-import { connectDb } from "./db/db.connect.js";
 import cors from "cors";
 import dotenv from "dotenv";
+import { connectDb } from "./db/db.connect.js";
 import invoice from "./routes/invoice.route.js";
 import brand from "./routes/brand.route.js";
 import retailer from "./routes/retailer.route.js";
@@ -19,7 +19,7 @@ app.use(express.json()); //body pareser
 app.use(express.urlencoded({ extended: false }));
 
 app.get("/", (req, res) => {
-  res.send("Helloooo");
+  res.send("server is running");
 });
 
 app.use("/v1/invoice", invoice);

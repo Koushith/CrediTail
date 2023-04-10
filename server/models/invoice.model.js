@@ -3,13 +3,9 @@ import { Retailer } from "./retailer.model.js";
 import { Sales } from "./sales.model.js";
 import { Brand } from "./brand.model.js";
 
-//todo- fix relationships
-
 const InvoiceSchema = mongoose.Schema({
   brand: {
-    // type: mongoose.Schema.ObjectId,
     type: String,
-    // ref: Brand,
   },
   brandId: {
     type: String,
@@ -25,16 +21,12 @@ const InvoiceSchema = mongoose.Schema({
     type: Number,
   },
   retailerName: {
-    // type: mongoose.Schema.ObjectId,
-    // ref: Retailer,
     type: String,
   },
   invoiceAmount: {
     type: Number,
   },
-  // pendingAmount: {
-  //   type: Number, // by default it will be invoice amount- later upgraded with difference amount
-  // },
+
   paymentMethod: {
     type: String,
   },
@@ -44,18 +36,16 @@ const InvoiceSchema = mongoose.Schema({
   },
 
   invoiceDate: {
-    type: String, //chanfe
+    type: String,
   },
   salesRepId: {
     type: String,
   },
   salesManName: {
-    // type: mongoose.Schema.ObjectId,
-    // ref: Sales,
     type: String,
   },
   collectionDate: {
-    type: String, //change later
+    type: String,
   },
 });
 

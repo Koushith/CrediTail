@@ -6,7 +6,6 @@ export const getAllSalesRep = async (req, res) => {
     const salesRep = await Sales.find({});
 
     if (salesRep) {
-      //todo- check status codes and update it correctly
       res.status(200).json({
         salesRep,
       });
