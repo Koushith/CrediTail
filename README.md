@@ -43,7 +43,7 @@ React Native with Expo CLI, Node/Express and MongoDB
 1. Clone the repo
 
 ```sh
-https://github.com/Koushith/CrediTail.git
+git clone https://github.com/Koushith/CrediTail.git
 ```
 
 3. Install NPM packages on both the directory (Client and Server)
