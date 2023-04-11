@@ -71,6 +71,11 @@ npx expo start
 
 ```
 
+### Deployment
+
+- Backend is deployed on Railway. you can access the base url at
+  `https://nodejs-production-8b92.up.railway.app`
+
 ### DB Schemas
 
 #### Invoice
