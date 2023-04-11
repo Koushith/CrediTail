@@ -87,8 +87,8 @@ npx expo start
 - brandName - ref to Brand
 - billNo - Int
 - retailerId - Int
-- retailerName - String
-- retailerNumber - Number
+- retailerName - ref to retailer
+- retailerNumber - ref to retailer
 - invoiceAmount - Int
 - isSettled - bool
 - invoiceDate - Date
@@ -100,11 +100,13 @@ npx expo start
 
 ```js
 - repId : String
+- repName : String
 ```
 
 #### Brand
 
 ```js
+brandName: String;
 brandName: String;
 ```
 
