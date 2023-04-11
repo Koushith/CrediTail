@@ -82,8 +82,7 @@ npx expo start
 
 ```js
 
-- brandName - ref to brand Schema
-- brandID - ref to brand Schema if
+- brandName - ref to Brand
 - billNo - Int
 - retailerId - Int
 - retailerName - String
@@ -97,9 +96,23 @@ npx expo start
 
 #### SalesRep
 
+```js
+- repId : String
+```
+
 #### Brand
 
+```js
+brandName: String;
+```
+
 #### Retailer
+
+```js
+retailerId: String;
+retailerName: String;
+retailerPhone: Number;
+```
 
 ### API Endpoints
 
