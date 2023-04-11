@@ -51,7 +51,7 @@ https://github.com/Koushith/CrediTail.git
 ```sh
 cd server
 npm install
-npm run nodemon
+npm run nodemon  // by default server will run on PROT-5000
 ```
 
 ```sh
@@ -59,9 +59,11 @@ cd client
 npm install
 npm run web // this will run RN web
 
-//or
+// or
 
-npm run android  // you need to open the emulator manually and run this command.
+npm run android  // you need to open the emulator manually and run this command(if you are on Windows and Linux.
+
+// or
 
 // USING EXPO GO
 
@@ -86,9 +88,9 @@ npx expo start
 - billNo - Int
 - retailerId - Int
 - retailerName - String
-- RetailerNumber - Number
-- InvoiceAmount - Int
-- PendingAmount - Int
+- retailerNumber - Number
+- invoiceAmount - Int
+- isSettled - bool
 - invoiceDate - Date
 - collectionDate - Date
 
@@ -120,7 +122,7 @@ retailerPhone: Number;
 
 ```
 
-METHOD - GET
+METHOD - GET - returns all invoices.
 
 /v1/invoices
 
@@ -129,34 +131,58 @@ METHOD - GET
 #### Create New Invoice
 
 ```
-METHOD - POST
+METHOD - POST - creates new invoice
 
 /v1/invoice
 
 Body Data
-    -
+    - brand - String
+    - billNo - String
+    - retailerName - String
+    - inVoiceAmount - Int
+    - invoiceDate - Date
+    - collectionDate - Date
+    - salesRepId - String
+    - retailerPhone - Number
+    - retailerName - String
 
 ```
 
-#### Update Invoice
+#### Get Single Invoice by Invoice ID
 
 ```
-METHOD - PUT
+METHOD - GET  - This will return single invoice based on billNo
 
 v1/invoice/:id
 
-// this api endpoint is used to update the invoice- we are allowing only invoice amount and due anount to update
+Body data:
+    - billNo
+
+```
+
+#### Update Invoice - Right now we only allow to send due amount and update accordingly.
+
+```
+METHOD - PUT  - update the invoice
+
+v1/invoice/:id
+
+// this api endpoint is used to update the invoice- we are allowing only invoice amount to be updated
 
 Body Data
 
-- invoiceAmount
-- paidAmount
+
+- dueAmount - Int
+
+if amount is settled, we update that aswell.
+
+
 ```
 
 #### Create Sales Rep
 
 ```
-METHOD - POST
+METHOD - POST - creates a sales representative
 
 v1/sales
 

@@ -99,9 +99,6 @@ export const getInvoiceById = async (req, res) => {
 };
 
 //update invoice - ALLOW ONLY PAYMENT TO UPDATE- SET SETTLED IF DIFF ==0
-// get all invoice
-// create invoice
-// update invoice-amount
 
 export const updateInvoice = async (req, res) => {
   try {
