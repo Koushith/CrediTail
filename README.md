@@ -63,9 +63,7 @@ npm run web // this will run RN web
 
 npm run android  // you need to open the emulator manually and run this command(if you are on Windows and Linux.
 
-// or
-
-// USING EXPO GO
+// or USING EXPO GO
 
 npx expo start
 
