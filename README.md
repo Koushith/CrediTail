@@ -181,7 +181,7 @@ if amount is settled, we update that aswell.
 
 ```
 
-#### Create Sales Rep
+#### Create Sales Rep.
 
 ```
 METHOD - POST - creates a sales representative
@@ -232,4 +232,4 @@ Distributed under the MIT License. See [LICENSE](https://github.com/koushith/Cre
 
 ## Authors
 
-- **Koushith B R** - [Koushith B R](https://github.com/koushith) - \*\* -
+- **Koushith B R** - [Koushith B R](https://github.com/koushith) - \*\*
