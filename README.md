@@ -16,7 +16,8 @@
 
 ## Table Of Contents
 
-- [Built With](#built-with)
+- [Context](#Context)
+- [Tech Stack](#built-with)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
@@ -27,6 +28,14 @@
 ## Screenshots
 
 ![Dribbble shot - 1](https://user-images.githubusercontent.com/30016242/230851429-24b4d646-01ab-4928-ba6e-ed71ad78a4f5.png)
+
+## Context
+
+This is a reconciliation solution to distributors by enabling the salesrep to collect money against pre-populated invoices.
+These invoices are processed before hand, mapping it to the retailer and the salesrep
+
+- invoice might not be cleared by the retailer in one go, hence the same invoice might be received multiple times. In these cases, salesrep only needs to collect the pending amount on the invoice
+
 
 ## Built With
 
