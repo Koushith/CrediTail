@@ -8,5 +8,4 @@ export const CardContainer = styled.View`
   border-bottom-right-radius: 12px;
   height: 144px;
   padding: 18px 30px 59px 30px;
-  border-top: 10px solid #3a3a3a;
 `;

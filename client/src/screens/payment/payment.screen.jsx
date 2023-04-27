@@ -28,15 +28,19 @@ export const PaymentScreen = () => {
     switch (id) {
       case id === 1:
         setPaymentMethod("Online");
+        setSelectedItemId(id);
         return;
       case id === 2:
         setPaymentMethod("Cash");
+        setSelectedItemId(id);
         return;
       case id === 3:
         setPaymentMethod("Online");
+        setSelectedItemId(id);
         return;
       default:
         setPaymentMethod("Cheque");
+        setSelectedItemId(id);
     }
   };
 
@@ -47,7 +51,7 @@ export const PaymentScreen = () => {
   const payment = async () => {
     //get invoice
     const { data } = await axios.get(
-      `https://nodejs-production-8b92.up.railway.app/v1/invoice/${billNo}`
+      `http://localhost:5000/v1/invoice/${billNo}`
     );
 
     setInvoiceamount(data.invoice.invoiceAmount);
@@ -61,7 +65,7 @@ export const PaymentScreen = () => {
         // alert("make payment");
         setIsLoading(true);
         let payment = await axios.put(
-          `https://nodejs-production-8b92.up.railway.app/v1/invoice/${billNo}`,
+          `http://localhost:5000/v1/invoice/${billNo}`,
           {
             pendingAmount: payAmount,
             paymentMethod: paymentMethod,
@@ -100,15 +104,19 @@ export const PaymentScreen = () => {
 
         <View style={styles.cardContainer}>
           {paymentMethods.map((method) => (
-            <View key={method.id}>
-              <PaymentCard
-                method={method}
-                key={method.id}
-                isSelected={selectedItemId === method.id}
-                onSelect={handleSelect}
-                onPress={() => paymentMethodSelector(method.id)}
-              />
-            </View>
+            // <View key={method.id}>
+            <PaymentCard
+              method={method}
+              key={method.id}
+              isSelected={selectedItemId === method.id}
+              // onSelect={handleSelect}
+              onPress={() => paymentMethodSelector(method.id)}
+              style={{
+                backgroundColor:
+                  selectedItemId === method.id ? "#DFE8F4" : "#EFEFEF",
+              }}
+            />
+            // </View>
           ))}
         </View>
       </View>

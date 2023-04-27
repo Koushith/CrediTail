@@ -9,7 +9,8 @@ export const InvoiceProvider = ({ children }) => {
   const getAllInvoices = async () => {
     try {
       const { data } = await axios.get(
-        "https://nodejs-production-8b92.up.railway.app/v1/invoice",
+        // "https://nodejs-production-8b92.up.railway.app/v1/invoice",
+        "http://localhost:5000/v1/invoice",
         {
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
